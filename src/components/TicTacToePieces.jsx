@@ -25,12 +25,17 @@ export function Board() {
     setSquares(nextSquares);
   }
 
+  function handleResetClick () {
+    setSquares(Array(9).fill(null));
+  }
+
   return (
     <>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={ () => handleClick(0) } />
         <Square value={squares[1]} onSquareClick={ () => handleClick(1) } />
         <Square value={squares[2]} onSquareClick={ () => handleClick(2) } />
+        <button onClick={handleResetClick}>RESET GAME</button>
       </div>
       <div className="board-row">
         <Square value={squares[3]} onSquareClick={ () => handleClick(3) } />
