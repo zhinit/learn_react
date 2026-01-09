@@ -1,27 +1,4 @@
 const App = () => {
-  const name = "Zach"
-  const x = 10;
-  const y = 20;
-  const names = ['Brad', 'Mary', 'Joe', 'Sara'];
-  const loggedIn = true;
-  const styles = {
-    color: 'red',
-    fontSize: '55px'
-  }
-
-  return (
-    <>
-      <div className="text-5xl">App</div>
-      <p style={styles}>hello {name}</p>
-      <p>The sum of {x} and {y} is {x+y}</p>
-      <ul>
-        {names.map((name, index) => (
-          <li key={index}>{name}</li>
-        ))}
-      </ul>
-      { loggedIn ? <h1>Hello Member</h1> : <h1>Hello Guest</h1> }
-      { loggedIn && <h1>You Are a great member!</h1>}
-    </>
-  )
+  return <div>App</div>
 };
 export default App;
