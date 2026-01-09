@@ -4,11 +4,15 @@ const App = () => {
   const y = 20;
   const names = ['Brad', 'Mary', 'Joe', 'Sara'];
   const loggedIn = true;
+  const styles = {
+    color: 'red',
+    fontSize: '55px'
+  }
 
   return (
     <>
       <div className="text-5xl">App</div>
-      <h1>hello {name}</h1>
+      <p style={styles}>hello {name}</p>
       <p>The sum of {x} and {y} is {x+y}</p>
       <ul>
         {names.map((name, index) => (
