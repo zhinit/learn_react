@@ -17,7 +17,10 @@ function MyButton() {
 
 const App = () => {
   return (
-    <MyButton />
+    <div>
+      <MyButton />
+      <MyButton />
+    </div>
   )
 };
 export default App;
