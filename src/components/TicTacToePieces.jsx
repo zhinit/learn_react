@@ -1,15 +1,15 @@
-function Square() {
+function Square({ value }) {
   return (
-    <button className="square">X</button>
+    <button className="square">{value}</button>
   );
 }
 
 function BoardRow () {
   return (
     <div className="board-row">
-      <Square />
-      <Square />
-      <Square />
+      <Square value="1" />
+      <Square value="2" />
+      <Square value="3" />
     </div>
   );
 }
@@ -21,5 +21,5 @@ export function Board() {
       <BoardRow />
       <BoardRow />
     </div> 
-  )
+  );
 }

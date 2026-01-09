@@ -1,4 +1,4 @@
-import { Board } from "./components/TikTakToePieces.jsx";
+import { Board } from "./components/TicTacToePieces.jsx";
 
 const App = () => {
   return (
