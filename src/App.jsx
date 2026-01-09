@@ -2,25 +2,33 @@ import { Board } from "./components/TikTakToePieces.jsx";
 
 import { useState } from 'react';
 
-function MyButton() {
-  const [count, setCount] = useState(0);
-  function handleClick() {
-    setCount(count + 1);
-  }
-
+function MyButton({ count, onClick }) {
   return(
-    <button onClick={handleClick}>
+    <button onClick={onClick}>
       Clicked {count} times!
     </button>
   ); 
 }
 
-const App = () => {
+function MyButtons() {
+  
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
   return (
     <div>
-      <MyButton />
-      <MyButton />
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
     </div>
+  )
+}
+
+const App = () => {
+  return (
+    <MyButtons />
   )
 };
 export default App;
