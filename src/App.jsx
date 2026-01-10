@@ -1,8 +1,8 @@
-import { Board } from "./components/TicTacToePieces.jsx";
+import { Game } from "./components/TicTacToePieces.jsx";
 
 const App = () => {
   return (
-    <Board />
+    <Game />
   )
 };
 export default App;
