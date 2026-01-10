@@ -18,11 +18,10 @@ export function Board() {
   
   function handleClick (i) {
     const nextSquares = squares.slice();
-    if (nextSquares[i] === null) {
-      turn ? nextSquares[i] = "X" : nextSquares[i] = "O";
-    } else {
-      return;
+    if (nextSquares[i] || calculateWinner(squares)) { 
+      return; 
     }
+    nextSquares[i] = turn ? "X" : "O";
     setSquares(nextSquares);
     setTurn(!turn);
   }
@@ -31,13 +30,39 @@ export function Board() {
     setSquares(Array(9).fill(null));
   }
 
+  function calculateWinner (squares) {
+    const winners = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 5]
+    ]
+    for (let i = 0; i < winners.length; ++i) {
+      const [a, b, c] = winners[i];
+      if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
+        return squares[a];
+      }
+    }
+    return null;
+  }
+
+  const winner = calculateWinner(squares);
+  let status;
+  if (winner) { status = "Winner: " + winner; }
+  else { status =(turn? 'X' : 'O') + "'s turn!"; }
+  
   return (
     <>
+      <button onClick={handleResetClick}>RESET GAME</button>
+      <div className="status">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={ () => handleClick(0) } />
         <Square value={squares[1]} onSquareClick={ () => handleClick(1) } />
         <Square value={squares[2]} onSquareClick={ () => handleClick(2) } />
-        <button onClick={handleResetClick}>RESET GAME</button>
       </div>
       <div className="board-row">
         <Square value={squares[3]} onSquareClick={ () => handleClick(3) } />
