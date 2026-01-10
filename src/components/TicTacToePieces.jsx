@@ -14,17 +14,17 @@ function Square({ value, onSquareClick }) {
 
 export function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
-  const [turn, setTurn] = useState(0);
+  const [turn, setTurn] = useState(true);
   
   function handleClick (i) {
     const nextSquares = squares.slice();
     if (nextSquares[i] === null) {
-      nextSquares[i] = "X";
+      turn ? nextSquares[i] = "X" : nextSquares[i] = "O";
     } else {
-      turn ? nextSquares[i] = "O" : nextSquares[i] = "X"
+      return;
     }
     setSquares(nextSquares);
-    setTurn(turn ? 0 : 1);
+    setTurn(!turn);
   }
 
   function handleResetClick () {
